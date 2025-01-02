@@ -1,0 +1,96 @@
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    line-height: 1.6;
+    background-color: #f9f9f9;
+    color: #333;
+    margin: 0;
+    padding-bottom: 100px; /* Add padding at the bottom of the body to make space for the footer */
+}
+
+
+header {
+    background-color: #333;
+    color: white;
+    padding: 2em;
+    text-align: center;
+}
+
+header h1 {
+    font-size: 3em;
+    margin-bottom: 0.2em;
+}
+
+header p {
+    font-size: 1.2em;
+}
+
+nav {
+    background-color: #444;
+    text-align: center;
+    padding: 1em 0;
+}
+
+nav ul {
+    list-style-type: none;
+}
+
+nav ul li {
+    display: inline;
+    margin-right: 20px;
+}
+
+nav ul li a {
+    color: white;
+    text-decoration: none;
+    font-size: 1.1em;
+}
+
+nav ul li a:hover {
+    text-decoration: underline;
+}
+
+section {
+    padding: 3em 1.5em;
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+section h2 {
+    font-size: 2em;
+    margin-bottom: 1em;
+}
+
+footer {
+    text-align: center;
+    background-color: #333;
+    color: white;
+    padding: 1em;
+    /*margin-top: 2em; Add some space above the footer take out next three lines if dont want it fixed to bottom of page */
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+}
+
+
+/* for media like iphone size adjustment */ 
+@media (max-width: 768px) {
+    nav ul {
+        display: block;
+        text-align: left;
+    }
+
+    nav ul li {
+        margin-bottom: 10px;
+    }
+
+    section {
+        padding: 2em 1em;
+    }
+}
