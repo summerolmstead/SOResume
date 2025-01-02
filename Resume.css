@@ -56,6 +56,19 @@ nav ul li a:hover {
     text-decoration: underline;
 }
 
+/*profile image styling */
+.profile-container {
+    display: flex;
+    align-items: center; /* center the image and text vertically */
+}
+
+.profile-img {
+    width: 100px; /*width of the image */
+    height: 100px; /*height of the image */
+    border-radius: 50%; /*image is circular */
+    margin-right: 20px; /* space between the image and text */
+}
+
 section {
     padding: 3em 1.5em;
     max-width: 900px;
@@ -78,6 +91,22 @@ footer {
     width: 100%;
 }
 
+/*social media icons */
+#contact a {
+    text-decoration: none;
+    color: inherit; /* keep the default color */
+    font-size: 1.5em; /* increase icon size */
+    margin-right: 15px; /* space between icons */
+}
+
+#contact i {
+    margin-right: 8px; /* space between icon and text */
+}
+
+#contact p {
+    font-size: .8em;
+}
+
 
 /* for media like iphone size adjustment */ 
 @media (max-width: 768px) {
@@ -94,3 +123,91 @@ footer {
         padding: 2em 1em;
     }
 }
+/* so the page flows smoother than an abrupt click*/
+html {
+    scroll-behavior: smooth;
+}
+
+/*basic reset for padding and margin */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/*container for the entire timeline */
+.timeline {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 40px auto;
+    width: 80%;
+    max-width: 900px;
+    position: relative;
+}
+
+/*individual timeline item !*/
+.timeline-item {
+    display: flex;
+    align-items: center;
+    position: relative;
+    width: 100%;
+    margin-bottom: 40px;
+}
+
+/*left side for job info or educ info for involvement */
+.timeline-content.left {
+    width: 65%;
+    padding-right: 20px;
+    text-align: right; /* Align text to the right side */
+    position: relative; /* Ensure the content stays within the section */
+}
+
+/* right side - item description */
+.timeline-content.right {
+    width: 90%;
+    padding-left: 155px;  /* Increased padding to push the text further from the line */
+    text-align: left;
+    position: relative; 
+    margin-left: 20px; /* Added margin to avoid the text overlapping with the line */
+}
+
+
+/* the line between the left and right content */
+.timeline-line {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 50%;
+    width: 2px;
+    background-color: #333;
+    transform: translateX(-50%); /* Centers the line */
+}
+
+/* icon styles for briefcase */
+.timeline-icon {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%); /* Center the icon vertically and horizontally */
+    background-color: white;
+    border-radius: 50%;
+    border: 3px solid #333;
+    padding: 10px;
+    z-index: 1;
+}
+
+/* font Awesome icon styling */
+.timeline-icon i {
+    font-size: 20px;
+    color: #333;
+}
+
+/* add spacing and bold for strong tags */
+.timeline-content p strong {
+    font-weight: bold;
+}
+
+
+
+
