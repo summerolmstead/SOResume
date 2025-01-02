@@ -208,6 +208,15 @@ html {
     font-weight: bold;
 }
 
+.utc-logo {
+    text-align: left;
+    margin-bottom: 20px; /* Adjust the spacing as needed */
+}
+
+.utc-logo img {
+    border-radius: 10px; /* Optional: Adds rounded corners to the logo */
+}
+
 
 
 
