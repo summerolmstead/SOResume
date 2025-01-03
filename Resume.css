@@ -1,4 +1,3 @@
-
 * {
     margin: 0;
     padding: 0;
@@ -10,10 +9,16 @@ body {
     line-height: 1.6;
     background-color: #f9f9f9;
     color: #333;
-    margin: 0;
-    padding-bottom: 100px; /* Add padding at the bottom of the body to make space for the footer */
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh; 
+   
 }
 
+/*ensure content stretches properly */
+main {
+    flex-grow: 1; /* makes the main content area grow and take up the available space */
+}
 
 header {
     background-color: #333;
@@ -56,23 +61,23 @@ nav ul li a:hover {
     text-decoration: underline;
 }
 
-/*profile image styling */
 .profile-container {
     display: flex;
     align-items: center; /* center the image and text vertically */
 }
 
 .profile-img {
-    width: 100px; /*width of the image */
-    height: 100px; /*height of the image */
-    border-radius: 50%; /*image is circular */
-    margin-right: 20px; /* space between the image and text */
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    margin-right: 20px;
 }
 
+/* section styling */
 section {
-    padding: 3em 1.5em;
-    max-width: 900px;
-    margin: 0 auto;
+    padding: 3em 1.5em;  
+    max-width: 900px;    /* this makes margins  */
+    margin: 0 auto;      
 }
 
 section h2 {
@@ -81,72 +86,30 @@ section h2 {
 }
 
 footer {
-    text-align: center;
     background-color: #333;
     color: white;
-    padding: 1em;
-    /*margin-top: 2em; Add some space above the footer take out next three lines if dont want it fixed to bottom of page */
-    position: fixed;
-    bottom: 0;
-    width: 100%;
-}
+    padding: 2em;
+    text-align: center;
+} 
 
-/*social media icons */
-#contact a {
-    text-decoration: none;
-    color: inherit; /* keep the default color */
-    font-size: 1.5em; /* increase icon size */
-    margin-right: 15px; /* space between icons */
-}
-
-#contact i {
-    margin-right: 8px; /* space between icon and text */
-}
-
-#contact p {
-    font-size: .8em;
+footer .container {
+    width: 100%; 
+    padding: 0;  
 }
 
 
-/* for media like iphone size adjustment */ 
-@media (max-width: 768px) {
-    nav ul {
-        display: block;
-        text-align: left;
-    }
 
-    nav ul li {
-        margin-bottom: 10px;
-    }
-
-    section {
-        padding: 2em 1em;
-    }
-}
-/* so the page flows smoother than an abrupt click*/
-html {
-    scroll-behavior: smooth;
-}
-
-/*basic reset for padding and margin */
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
-
-/*container for the entire timeline */
+/* timeline styling */
 .timeline {
     display: flex;
     flex-direction: column;
     align-items: center;
     margin: 40px auto;
-    width: 80%;
-    max-width: 900px;
+    width: 70%;
+    max-width: 100%; /* allow full width */
     position: relative;
 }
 
-/*individual timeline item !*/
 .timeline-item {
     display: flex;
     align-items: center;
@@ -155,25 +118,22 @@ html {
     margin-bottom: 40px;
 }
 
-/*left side for job info or educ info for involvement */
 .timeline-content.left {
     width: 65%;
     padding-right: 20px;
-    text-align: right; /* Align text to the right side */
-    position: relative; /* Ensure the content stays within the section */
+    text-align: right;
+    position: relative;
 }
 
-/* right side - item description */
 .timeline-content.right {
     width: 90%;
-    padding-left: 155px;  /* Increased padding to push the text further from the line */
+    padding-left: 155px;
     text-align: left;
-    position: relative; 
-    margin-left: 20px; /* Added margin to avoid the text overlapping with the line */
+    position: relative;
+    margin-left: 20px;
 }
 
-
-/* the line between the left and right content */
+/* timeline line */
 .timeline-line {
     position: absolute;
     top: 0;
@@ -181,15 +141,15 @@ html {
     left: 50%;
     width: 2px;
     background-color: #333;
-    transform: translateX(-50%); /* Centers the line */
+    transform: translateX(-50%);
 }
 
-/* icon styles for briefcase */
+/* timeline icon */
 .timeline-icon {
     position: absolute;
     top: 50%;
     left: 50%;
-    transform: translate(-50%, -50%); /* Center the icon vertically and horizontally */
+    transform: translate(-50%, -50%);
     background-color: white;
     border-radius: 50%;
     border: 3px solid #333;
@@ -197,25 +157,117 @@ html {
     z-index: 1;
 }
 
-/* font Awesome icon styling */
 .timeline-icon i {
     font-size: 20px;
     color: #333;
 }
 
-/* add spacing and bold for strong tags */
-.timeline-content p strong {
-    font-weight: bold;
+/* social media icons */
+#contact a {
+    text-decoration: none;
+    color: inherit;
+    font-size: 1.5em;
+    margin-right: 15px;
 }
 
-.utc-logo {
-    text-align: left;
-    margin-bottom: 20px; /* Adjust the spacing as needed */
+#contact i {
+    margin-right: 8px;
+}
+/* not as jumpy and does a pretty scroll lol */
+html {
+    scroll-behavior: smooth;
 }
 
-.utc-logo img {
-    border-radius: 10px; /* Optional: Adds rounded corners to the logo */
+/* media queries for mobile to fit in iphone view etc*/
+@media (max-width: 768px) {
+    /* adjust timeline layout for smaller screens */
+    .timeline {
+        width: 100%; 
+    }
+
+    /*timeline item layout should be vertical for mobile */
+    .timeline-item {
+        flex-direction: column;
+        align-items: center; 
+        margin-bottom: 10px; 
+    }
+
+    /*timeline content adjustments for both left and right */
+    .timeline-content.left,
+    .timeline-content.right {
+        position: relative; /* ensure position for left and right alignment */
+    }
+
+    /*adjust left timeline content specifically */
+    .timeline-content.left {
+        font-size: 0.6em; 
+        width:95%;
+        text-align: left; /* align text to the left */
+        padding-left: -400px; /* add a little padding but not too much */
+        
+    }
+
+    /* adjust right timeline content specifically */
+    .timeline-content.right {
+        font-size: 0.7em; 
+        width:100%;
+        text-align: left; /* align text to the right */
+        padding-left: 190px; /* padding to maintain space from the timeline */
+        padding-right: 5px; /* adjust padding to avoid overlapping */
+    }
+
+    /*reduce width of the timeline line */
+    .timeline-line {
+        width: 1px;
+    }
+
+    /*adjust icon size */
+    .timeline-icon {
+        padding: 4px;
+        font-size: 18px;
+    }
+
+    /*adjust icon inside the timeline */
+    .timeline-icon i {
+        font-size: 16px;
+    }
+
+    /*reduce font sizes for other sections on mobile */
+    header h1 {
+        font-size: 2em; 
+    }
+
+    header p {
+        font-size: .8em; 
+    }
+
+    nav ul li a {
+        font-size: 1em; 
+    }
+
+    section h2 {
+        font-size: 1em; 
+    }
+
+    section {
+        padding: .7em 1em; 
+    }
+
+    footer {
+        font-size: 0.8em;
+        padding: 1.5em 1em; 
+    }
+
+    #contact a {
+        text-decoration: none;
+        color: inherit;
+        font-size: 1em;
+        margin-right: 15px;
+    }
+    
+
 }
+
 
 
 
